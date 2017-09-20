@@ -43,7 +43,7 @@ SCRIPT_GEN_POST = File.join(SCRIPTS_DIR, "gen_post.rb")
 SCRIPT_GEN_GEMS_CONFIG = File.join(SCRIPTS_DIR, "gen_gems_config.rb")
 SCRIPT_GEN_REQUIRE = File.join(SCRIPTS_DIR, "gen_require.rb")
 
-EMCC_CFLAGS = "-I#{MRUBY_DIR}/include"
+EMCC_CFLAGS = "-I#{MRUBY_DIR}/include #{'-s WASM=1' if ENV['WASM']}"
 
 LIBMRUBY = "mruby/emscripten/lib/libmruby.a"
 MRBTEST = "mruby/emscripten/test/mrbtest"

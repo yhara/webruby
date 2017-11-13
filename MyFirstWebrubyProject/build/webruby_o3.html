@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="webruby_o3.js"></script>
+  </head>
+  <body>
+    <h1>Webruby (JS -O3)</h1>
+    <div id="container"></div>
+    <script>
+      setTimeout(() => {
+        var t0 = new Date();
+        var mrb = WEBRUBY();
+        mrb.run();
+        mrb.close();
+        var t1 = new Date();
+        console.log("time", (t1 - t0)/1000);
+      }, 1000);
+    </script>
+  </body>
+</html>

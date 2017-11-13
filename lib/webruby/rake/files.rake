@@ -39,9 +39,7 @@ file "#{Webruby.build_dir}/#{Webruby::App.config.output_name}" =>
                                       [])
   runner_arg = Webruby::App.config.append_file ? "--post-js #{Webruby::App.config.append_file}" : ""
 
-  out = Webruby::App.config.output_name
-  out.sub!(".js", "_wasm.js") if ENV['WASM']
-  sh "#{EMLD} #{'-s WASM=1' if ENV['WASM']} #{Webruby.build_dir}/app.o #{Webruby.object_files.join(' ')} #{Webruby::App.config.static_libs.join(' ')} -o #{Webruby.build_dir}/#{out} #{Webruby.gem_js_flags} #{func_arg} #{Webruby::App.config.ldflags.join(' ')} #{Webruby::App.config.optimization_flag} #{runner_arg}"
+  sh "#{EMLD} #{'-s WASM=1' if ENV['WASM']} #{Webruby.build_dir}/app.o #{Webruby.object_files.join(' ')} #{Webruby::App.config.static_libs.join(' ')} -o #{Webruby.build_dir}/#{Webruby::App.config.output_name} #{Webruby.gem_js_flags} #{func_arg} #{Webruby::App.config.ldflags.join(' ')} #{Webruby::App.config.optimization_flag} #{runner_arg}"
 end
 
 file "#{Webruby.build_dir}/mrbtest.js" =>
